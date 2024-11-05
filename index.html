@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            background-color: rgb(203, 252, 203);
+
+            
+        }
+        button{
+            margin-bottom: 5px;
+            margin: 5px;
+            font-size: 1.2em;
+
+        }
+        h1{
+            background-color: rgb(80, 206, 80);
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .s{
+            background-color: rgb(66, 236, 66);
+            border-radius: 5px;
+            color: black;
+    
+        }
+        p{
+            color: red;
+        }
+        .n{
+            background-color: rgb(248, 68, 68);
+            border-radius: 5px;
+            color: black;
+    
+        }
+        .relatorio{
+            margin: 20px;
+            background-color: rgb(158, 170, 238);
+            border-radius: 5px;
+            color: black;
+
+        }
+        .carr{
+            padding: 5px;
+            border: 2px solid black;
+        }
+        .obs{
+            margin: 10px;
+            padding: 20px;
+            border: 2px solid black;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>manutenção preventiva</h1>
+
+    <input class="carr" id="carregador" type="text" placeholder="Local Carregador">
+    
+
+    <p id="limpe">Limpeza</p>
+    <button class="s" id="slimp" onclick="limpes()">Sim</button>
+    <button class="n" id="nlimp" onclick="limpen()">Não</button>
+    <p id="cone">Reaperto Das Conexão</p>
+    <button class="s" id="sreaperto" onclick="conexaos()">Sim</button>
+    <button class="n" id="nreaperto" onclick="conexaon()">Não</button>
+    <p id="filtr">Troca de Filtros</p>
+    <button class="s" id="sfiltro" onclick="filtros()">Sim</button>
+    <button class="n" id="nfiltro" onclick="filtron()">Não</button>
+    <p id="funciona">Teste de funcionamento</p>
+    <button class="s" id="steste" onclick="funcs()">Sim</button>
+    <button class="n" id="nteste" onclick="funcn()">Não</button>
+    <br>
+    
+
+    
+    <input id="observ" class="obs" type="text" placeholder="Observação">
+
+    <button class="relatorio" onclick="relatorio()">Relatorio Download</button>
+
+    <script>
+
+        
+        
+
+        let limpeza;
+        let conexao;
+        let filtro;
+        let funcionamento;
+        let intro =  "A manutenção preventiva é crucial para garantir o bom funcionamento \ne a longevidade dos equipamentos. Ao realizar inspeções e ajustes regulares, \né possível identificar e corrigir problemas antes que se tornem falhas graves,\n evitando custos com reparos emergenciais. Além disso, ela melhora \na segurança, a eficiência operacional e reduz o tempo de inatividade. Em suma,\n a manutenção preventiva é um investimento estratégico que assegura\n a continuidade das operações, prolonga a vida útil dos sistemas e equipamentos\n e contribui para a economia a longo prazo."
+        
+        
+        function limpes(){
+            limpeza = "Feito"
+            document.getElementById("limpe").style.color = "green";
+
+        }
+        function limpen(){
+            limpeza = "Não Feito"
+            document.getElementById("lmp").style.color = "green";
+
+        }
+
+        function conexaos(){
+            conexao = "Feito"
+            document.getElementById("cone").style.color = "green";
+
+        }
+        function conexaon(){
+            conexao = "Não Feito"
+            document.getElementById("cone").style.color = "green";
+
+        }
+        function filtros(){
+            filtro = "Feito"
+            document.getElementById("filtr").style.color = "green";
+        }
+        function filtron(){
+            filtro = "Não Feito"
+            document.getElementById("filtr").style.color = "green";
+        }
+        function funcs(){
+            funcionamento = "Feito"
+            document.getElementById("funciona").style.color = "green";
+        }
+        function funcn(){
+            funcionamento = "Não Feito"
+            document.getElementById("funciona").style.color = "green";
+
+        }
+
+
+
+        
+
+        
+        function relatorio(){
+            
+
+            let observacao  = document.getElementById("observ").value
+            let local = document.getElementById("carregador").value;
+            let carregador = "manutenção preventiva no Carregador: "+ local;
+
+            let rel =  carregador +"\n\n\n"+intro +" \n\n1 Limpeza Externa: "+limpeza+"\n2 Reaperto Das Conexão: "+conexao+"\n3 Troca de Filtros: "+filtro+"\n4 Teste de funcionamento: "+funcionamento+ " \n\n Observação do Tecnico \n\n"+observacao;
+            let blob = new Blob ([rel], {type:`text/plain`});
+            let link = document.createElement(`a`);
+            link.href = URL.createObjectURL(blob);
+            link.download = `arquivo.txt`;
+            
+            link.click();
+
+        }
+
+    </script>
+    
+</body>
+</html>
