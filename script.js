@@ -6,7 +6,7 @@
         let conexao;
         let filtro;
         let funcionamento;
-        let intro =  "A manutenção preventiva é crucial para garantir o bom funcionamento \ne a longevidade dos equipamentos. Ao realizar inspeções e ajustes regulares, \né possível identificar e corrigir problemas antes que se tornem falhas graves,\n evitando custos com reparos emergenciais. Além disso, ela melhora \na segurança, a eficiência operacional e reduz o tempo de inatividade. Em suma,\n a manutenção preventiva é um investimento estratégico que assegura\n a continuidade das operações, prolonga a vida útil dos sistemas e equipamentos\n e contribui para a economia a longo prazo."
+        let intro =  "      A manutenção preventiva é crucial para garantir o bom funcionamento e a longevidade \ndos equipamentos. Ao realizar inspeções e ajustes regulares, é possível identificar \ne corrigir problemas antes que se tornem falhas graves,evitando custos com reparos \nemergenciais. Além disso, ela melhora a segurança, a eficiência operacional e reduz o \ntempo de inatividade. Em suma,a manutenção preventiva é um investimento estratégico que \nassegura a continuidade das operações, prolonga a vida útil dos sistemas e equipamentos \ne contribui para a economia a longo prazo.";
         
         function limpes(){
             limpeza = "Feito"
@@ -54,7 +54,7 @@
             let local = document.getElementById("carregador").value;
             let carregador = "manutenção preventiva no Carregador: "+ local;
 
-            let rel =  carregador +"\n\n\n"+intro +" \n\n1 Limpeza Externa: "+limpeza+"\n2 Reaperto Das Conexão: "+conexao+"\n3 Troca de Filtros: "+filtro+"\n4 Teste de funcionamento: "+funcionamento+ " \n\n Observação do Tecnico \n\n"+observacao;
+            let rel =  carregador +"\n\n\n"+intro +" \n\n1 Limpeza Externa: "+limpeza+"\n\n2 Reaperto Das Conexão: "+conexao+"\n\n3 Troca de Filtros: "+filtro+"\n\n4 Teste de funcionamento: "+funcionamento+ " \n\n Observação do Tecnico \n\n"+observacao;
             let blob = new Blob ([rel], {type:`text/plain`});
             let link = document.createElement(`a`);
             link.href = URL.createObjectURL(blob);
@@ -63,3 +63,26 @@
             link.click();
 
         }
+        function pdf(){
+
+            
+            let { jsPDF } = window.jspdf;
+            let doc = new jsPDF;
+            
+
+            doc.setFontSize(11);            
+
+            let observacao  = document.getElementById("observ").value
+            let local = document.getElementById("carregador").value;
+            let carregador = "  manutenção preventiva no Carregador: "+ local;
+
+            let rel =  carregador +"\n\n\n"+intro +" \n\n1 Limpeza Externa: "+limpeza+"\n\n2 Reaperto Das Conexão: "+conexao+"\n\n3 Troca de Filtros: "+filtro+"\n\n4 Teste de funcionamento: "+funcionamento+ " \n\n Observação do Tecnico \n\n"+observacao;
+
+
+            doc.text( rel,20 ,10);
+            doc.save("olamundo.pdf");
+
+           
+        }
+
+        

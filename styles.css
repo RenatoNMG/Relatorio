@@ -1,7 +1,9 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
-    text-align: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     
 
     
@@ -16,33 +18,39 @@ h1{
     
     padding: 10px;
     border: 2px solid black;
+    margin-bottom: 20px;
+
+}
+.s, .n{
+    
+    color: black;
+    padding: 5px;
+
 
 }
 .s{
-    background-color: rgba(66, 236, 66, 0.425);
-    border-radius: 5px;
-    color: black;
+    background-color: rgb(69, 248, 69);
+   
     
 
 }
 p{
     color: rgb(0, 0, 0);
     font-size: 1.1em;
-    margin: 20px 0 1px 0;
+    margin: 20px 0 0px 5px;
     
 }
 .n{
-    background-color: rgba(248, 68, 68, 0.575);
-    border-radius: 5px;
-    color: black;
-   
+    background-color: rgb(255, 59, 59);
+    
 
 }
 .relatorio{
-    margin: 20px;
+
     background-color: rgb(167, 238, 158);
-    border-radius: 5px;
     color: black;
+    margin-top: 40px;
+    padding: 10px;
 
 }
 .carr{
@@ -50,11 +58,24 @@ p{
     border: 2px solid black;
 }
 .obs{
-    margin: 10px;
+   
     padding: 20px;
     border: 2px solid black;
 }
 input{
     background-color: white;
+    margin-left: 30px;
+    margin: 0px 30px 20px 0px;
     
+}
+label{
+    margin: 0 5px 0 px;
+}
+.caixadetxt{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.questionario{
+    text-align: center;
 }

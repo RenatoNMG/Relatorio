@@ -5,33 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>manutenção preventiva</h1>
 
-    <input class="carr" id="carregador" type="text" placeholder="Local Carregador">
-    
+    <div class="caixadetxt">
+        <label for="carregador">Carregador</label>
+        <input class="carr" id="carregador" type="text" placeholder="Local Carregador">
+        <label for="observ">Observação</label>
+        <input id="observ" class="obs" type="text" placeholder="Observação">
 
-    <p id="limpe">Limpeza</p>
+    </div>
+   
+
+    <div class="questionario">
+        <p id="limpe">Limpeza</p>
     <button class="s" id="slimp" onclick="limpes()">Sim</button>
     <button class="n" id="nlimp" onclick="limpen()">Não</button>
+
     <p id="cone">Reaperto Das Conexão</p>
     <button class="s" id="sreaperto" onclick="conexaos()">Sim</button>
     <button class="n" id="nreaperto" onclick="conexaon()">Não</button>
+
     <p id="filtr">Troca de Filtros</p>
     <button class="s" id="sfiltro" onclick="filtros()">Sim</button>
     <button class="n" id="nfiltro" onclick="filtron()">Não</button>
+
     <p id="funciona">Teste de funcionamento</p>
     <button class="s" id="steste" onclick="funcs()">Sim</button>
     <button class="n" id="nteste" onclick="funcn()">Não</button>
+
     <br>
+
+    <button class="relatorio" onclick="pdf()">PDF &dArr;</button>
+    <button class="relatorio" onclick="relatorio()">Texto &dArr;</button>
+
+    
+
+
+    </div>
+    
     
 
     
-    <input id="observ" class="obs" type="text" placeholder="Observação">
-
-    <button class="relatorio" onclick="relatorio()">Relatorio Download</button>
+    
 
     <script src="script.js">
 
